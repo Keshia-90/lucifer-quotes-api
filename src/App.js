@@ -32,11 +32,11 @@ const App = () => {
   return ( 
     <div className='App'>
       <h1>Lucifer Quotes</h1>
-      {error && <p>{error}</p>}
+            {error && <p>{error}</p>}
       {luciferQuote.map((quotes) => (
         <div className='quotes' key= {quotes.quote}>
         <h3> {quotes.author}</h3>
-        <p> {quotes.quote}</p>
+        <p> "{quotes.quote}"</p>
         </div>
       ))}
     </div>
