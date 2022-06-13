@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  const[luciferQuote, setLuciferQuote] = useState([]);
+  const[error, setError] = useState(null);
+
+  useEffect(()=>{
+    const fetchData = async ()=> {
+      try {
+        const response = await fetch(
+          'https://lucifer-quotes.vercel.app/api/quotes/5'
+        );
+        if(!response.ok){
+          throw new Error(response.statusText)
+        }
+        const data = await response.json();
+        setLuciferQuote(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+        setError('Could not fetch the data');
+      }
+  };
+  fetchData();
+
+  },[]);
+
+
+
+
+  return ( 
+    <div className='App'>
+      <h1>Lucifer Quotes</h1>
+      {error && <p>{error}</p>}
+      {luciferQuote.map((quotes) => (
+        <div className='quotes' key= {quotes.quote}>
+        <h3> {quotes.author}</h3>
+        <p> {quotes.quote}</p>
+        </div>
+      ))}
     </div>
-  );
-}
+  )
+      };
 
 export default App;
