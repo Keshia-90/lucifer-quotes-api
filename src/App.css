@@ -10,9 +10,10 @@ h1{
   font-size: 100px;
   font-family: 'Lobster', cursive;
   color: rgb(184, 11, 11);
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
   border-style: groove;
   border-width: 20px;
-  border-color: rgba(192, 192, 192, 0.412);
+  border-color: rgba(192, 192, 192, 0.517);
   background-color: rgba(0, 0, 0, 0.648);
   display:inline-block;
 }
@@ -21,6 +22,11 @@ h3{
   text-decoration: underline;
   font-size: 40px;
   color: black;
+  text-shadow: 0 0 4px rgb(255, 0, 0), 0 0 4px rgb(255, 0, 0), 0 0 4px rgb(255, 0, 0), 0 0 4px rgb(255, 0, 0);
+}
+
+p{
+  text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black;
 }
 
 .quotes{
